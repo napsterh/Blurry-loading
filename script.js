@@ -3,11 +3,21 @@ const bg = document.querySelector('.bg')
 
 let load = 10
 
+const showNotification = () => {
+   const notification = document.createElement('div');
+   notification.innerText = '¡Carga completada!';
+   notification.classList.add('notification');
+   notification.style.color = '#fff';
+   notification.style.fontSize = '50px'
+   document.body.appendChild(notification);
+};
+
 const blurring = () => {
    load++
 
    if (load > 99) {
       clearInterval(int)
+      showNotification()
    }
 
    loadText.innerText = `${load}%`
